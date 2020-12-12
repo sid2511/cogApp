@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>stroopGame</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background" >
+  <ion-button 
+    (click)="getLevel(10)" 
+    *ngIf="playSeen" (click)="this.playSeen=false" (click)="this.answersSeen=true">
+    Play
+  </ion-button>
+
+  <div *ngIf="levelSeen">
+    <h3>Level: {{ levelCount }}</h3>
+  <h3 *ngFor="let element of questionArray">{{ element }}</h3>
+
+ <div><ion-button 
+    id="round"
+    *ngFor="let element of buttonArray"  
+    [ngStyle]="{'color':getColor(element.color)} "fill="clear"
+    (click)="checkAnswer(element.color, element.value)" (click)="element.clicked='true'" [disabled]="element.clicked"> 
+   {{ element.value }}  
+  </ion-button></div>
+</div>
+
+  <h3>{{ levelMessage }}</h3>
+
+  <div *ngIf="restartSeen">
+    <h3>Level Score: {{levelScore}}</h3>
+    <!--<h3>Time Taken: {{ levelTime }}  seconds</h3>!-->
+    <ion-button  (click)="onRestart()">Play Again!</ion-button>
+  </div>
+</ion-content>

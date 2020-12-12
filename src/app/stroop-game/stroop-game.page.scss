@@ -1,0 +1,26 @@
+ion-content.background{
+    --ion-background-color:#ffff;
+}
+
+p {
+    color: black ;
+    font-family: 'Times New Roman';
+}
+
+h3 {
+    font-family: 'Times New Roman';
+    color: black ;
+}
+
+ion-content {
+    --background: var(#b8b6b6); // Replace this with color of your choice
+  }
+
+#round {
+    width: 130px;
+    height: 45px;
+ //   --border-radius: 50%;
+ //   --vertical-align: middle;
+ //   --padding-start: 10px;
+ //   --padding-end: 10px;
+  }

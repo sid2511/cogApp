@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'stroop-game',
+    loadChildren: () => import('./stroop-game/stroop-game.module').then( m => m.StroopGamePageModule)
+  },
 ];
 
 @NgModule({
