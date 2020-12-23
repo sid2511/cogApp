@@ -4,11 +4,11 @@ ion-content.background{
 
 p {
     color: black ;
-    font-family: 'Times New Roman';
+    font-family: Sans-Serif;
 }
 
 h3 {
-    font-family: 'Times New Roman';
+   font-family: Sans-Serif;
     color: black ;
 }
 
@@ -17,10 +17,32 @@ ion-content {
   }
 
 #round {
-    width: 130px;
-    height: 45px;
+    width: 32%;
+    height: 7%;
  //   --border-radius: 50%;
  //   --vertical-align: middle;
  //   --padding-start: 10px;
  //   --padding-end: 10px;
-  }
+}
+
+.card {
+
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    position: absolute;
+
+    .card-header{
+        color: "primary";
+        position: relative;
+        text-align: center;
+        top: 10%;
+        font-size: 3.0em;
+        width: 100%;
+        font-weight: bold;
+ 
+    }
+ }
+
+

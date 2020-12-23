@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { StroopGamePageRoutingModule } from './stroop-game-routing.module';
 
 import { StroopGamePage } from './stroop-game.page';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    StroopGamePageRoutingModule
+    StroopGamePageRoutingModule,
+    SharedModule
   ],
   declarations: [StroopGamePage]
 })

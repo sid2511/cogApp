@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title class="level">Level: {{ level }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button id="pause" click="onPause()" name="pause-outline"><ion-icon name="pause"></ion-icon></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<!-- the menu -->
+<ion-menu side="start" contentId="pause" menuId="pause" (ionDidClose)="onCloseMenu('resume')">
+  <ion-header>
+    <ion-toolbar color="danger">
+      <ion-title text-center>Level: {{ level }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <div>
+        <ion-item (click)="onCloseMenu()">Resume</ion-item>
+        <ion-item (click)="onCloseMenu('restart')">Restart</ion-item>
+        <ion-item (click)="onCloseMenu('stop')">Stop</ion-item>
+      </div>
+      <ion-item (click)="onCloseMenu('quit')">Quit To Home</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

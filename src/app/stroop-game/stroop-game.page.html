@@ -1,34 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>stroopGame</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-menu *ngIf = "!startSeen"></app-menu>
 
-<ion-content padding class="background" >
+<ion-content padding class="background">
+
+  <!--<ion-card class="card" *ngIf="cardSeen">
+    <div class="card-header"><ion-card-header color="danger">Score: {{ this.roundScore }}</ion-card-header></div>
+    <ion-card-content>
+      <ion-button>Hello!</ion-button>
+    </ion-card-content>
+  </ion-card>!-->
+
+<div id="button">
   <ion-button 
-    (click)="getLevel(10)" 
-    *ngIf="playSeen" (click)="this.playSeen=false" (click)="this.answersSeen=true">
-    Play
+   *ngIf = "this.startSeen"
+    (click)="createLevel()" 
+     fill="outline"
+     [color]="red">
+     Start Game
   </ion-button>
-
-  <div *ngIf="levelSeen">
-    <h3>Level: {{ levelCount }}</h3>
-  <h3 *ngFor="let element of questionArray">{{ element }}</h3>
-
- <div><ion-button 
-    id="round"
-    *ngFor="let element of buttonArray"  
-    [ngStyle]="{'color':getColor(element.color)} "fill="clear"
-    (click)="checkAnswer(element.color, element.value)" (click)="element.clicked='true'" [disabled]="element.clicked"> 
-   {{ element.value }}  
-  </ion-button></div>
 </div>
+      
+  
 
-  <h3>{{ levelMessage }}</h3>
-
-  <div *ngIf="restartSeen">
-    <h3>Level Score: {{levelScore}}</h3>
-    <!--<h3>Time Taken: {{ levelTime }}  seconds</h3>!-->
-    <ion-button  (click)="onRestart()">Play Again!</ion-button>
-  </div>
+  <h3 *ngIf="!cardSeen" style="text-align: center"><strong>{{ question }}</strong></h3>
+  
+  
+  <ion-button 
+      id="round"
+      *ngFor="let element of buttonArray; index as i"  
+      fill= "{{ element.box }}"
+      [ngStyle]="{'color':getColor(element.color)}"
+     (click)="checkAnswer(i, element.color, element.value, element.box)" (click)="element.clicked='true'" [disabled]="element.clicked"> 
+    {{ element.value }}
+  </ion-button>
+  
 </ion-content>

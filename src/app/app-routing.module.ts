@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'stroop-game',
     loadChildren: () => import('./stroop-game/stroop-game.module').then( m => m.StroopGamePageModule)
   },
+  {
+    path: 'menu',
+    loadChildren: () => import('./shared/menu/menu.module').then( m => m.MenuPageModule)
+  },
 ];
 
 @NgModule({
