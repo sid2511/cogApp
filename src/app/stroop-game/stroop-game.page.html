@@ -1,31 +1,37 @@
-<app-menu *ngIf = "!startSeen"></app-menu>
+<app-menu *ngIf = "!startSeen && !cardSeen" [(level)]="currentLevel" [(score)]="levelArray[this.currentLevel-1].totalScore"></app-menu>
 
 <ion-content padding class="background">
 
-  <!--<ion-card class="card" *ngIf="cardSeen">
-    <div class="card-header"><ion-card-header color="danger">Score: {{ this.roundScore }}</ion-card-header></div>
+  <ion-card class="card"> 
+    <div class="card-header">
+      <ion-card-header color="warning">
+        <ion-card-subtitle>Score: {{ levelArray[this.currentLevel-1].totalScore }}</ion-card-subtitle>
+        <ion-card-title>{{ message }}</ion-card-title>
+      </ion-card-header></div>
     <ion-card-content>
-      <ion-button>Hello!</ion-button>
+      <ion-icon name="caret-forward-outline" color="danger" size="large" class="center" (click)="this.nextRound()"></ion-icon>
     </ion-card-content>
-  </ion-card>!-->
+  </ion-card>
 
-<div id="button">
-  <ion-button 
-   *ngIf = "this.startSeen"
-    (click)="createLevel()" 
-     fill="outline"
-     [color]="red">
-     Start Game
-  </ion-button>
-</div>
+  <ion-card *ngIf="startSeen" class="startCard">
+    <img src="https://cdn.britannica.com/70/191970-131-A85628DA/Color-wheel-light-color-spectrum.jpg" />
+    <ion-card-header>
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title>Stroop Game</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+    </ion-card-content>
+    <ion-button fill="outline" color="success" size="large" expand="block" (click)="createLevel()">Start Game</ion-button>
+  </ion-card>
       
   
 
-  <h3 *ngIf="!cardSeen" style="text-align: center"><strong>{{ question }}</strong></h3>
+  <h3 style="text-align: center"><strong>{{ question }}</strong></h3>
   
   
   <ion-button 
-      id="round"
+      id= "{{cardSeen==true ? 'roundBlur': 'round'}}"
       *ngFor="let element of buttonArray; index as i"  
       fill= "{{ element.box }}"
       [ngStyle]="{'color':getColor(element.color)}"

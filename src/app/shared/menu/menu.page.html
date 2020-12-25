@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="warning">
-    <ion-title class="level">Level: {{ level }}</ion-title>
+    <ion-title class="level">Score: {{ score }}</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button id="pause" click="onPause()" name="pause-outline"><ion-icon name="pause"></ion-icon></ion-menu-button>
     </ion-buttons>
@@ -19,8 +19,7 @@
     <ion-list>
       <div>
         <ion-item (click)="onCloseMenu()">Resume</ion-item>
-        <ion-item (click)="onCloseMenu('restart')">Restart</ion-item>
-        <ion-item (click)="onCloseMenu('stop')">Stop</ion-item>
+        <ion-item (click)="onCloseMenu('restart')" >Restart</ion-item>
       </div>
       <ion-item (click)="onCloseMenu('quit')">Quit To Home</ion-item>
     </ion-list>

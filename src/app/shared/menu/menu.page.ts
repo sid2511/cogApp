@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EventemitterService } from '../eventemitter.service'
 import { MenuController } from '@ionic/angular'
 
@@ -8,7 +8,8 @@ import { MenuController } from '@ionic/angular'
   styleUrls: ['./menu.page.scss'],
 })
 export class MenuPage implements OnInit {
-  level: number ;
+  @Input('level') level: number ;
+  @Input('score') score: number ;
 
   constructor(
     private eventEmitter: EventemitterService,
@@ -16,7 +17,8 @@ export class MenuPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.eventEmitter.currentLevel.subscribe(level => this.level = level)
+    //this.eventEmitter.currentLevel.subscribe(level => this.level = level)
+    //this.eventEmitter.currentScore.subscribe(score => this.score = score)
 }
 
   onCloseMenu(string?: string){

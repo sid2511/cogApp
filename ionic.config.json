@@ -1,7 +1,9 @@
 {
   "name": "cogApp",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
-  "type": "angular"
+  "type": "angular",
+  "id": "4ac6e81b"
 }

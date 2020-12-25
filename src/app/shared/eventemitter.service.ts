@@ -7,7 +7,8 @@ import { Injectable, EventEmitter } from '@angular/core'
 
 export class EventemitterService{
     gameState = new EventEmitter<string>();
-    currentLevel = new EventEmitter<number>()
+    //currentLevel = new EventEmitter<number>()
+    //currentScore = new EventEmitter<number>()
 
     constructor(){}
 
@@ -15,7 +16,11 @@ export class EventemitterService{
         this.gameState.emit(string)
     }
 
-    onSendLevel(number: number){
-        this.currentLevel.emit(number)
-    }
+   // onSendLevel(number: number){
+   //     this.currentLevel.emit(number)
+  //  }
+
+  //  onSendScore(number: number){
+  //      this.currentScore.emit(number)
+  //  }
 }
